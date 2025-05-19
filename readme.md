@@ -21,3 +21,6 @@ make init
 
 1. **type — deposit (начисление) или withdraw (списание)**
 
+### Пример:
+    docker-compose exec app php artisan create:operation admin 555 deposit 'first dep'
+
