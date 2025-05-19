@@ -8,7 +8,7 @@ use App\Models\Operation;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Collection;
 
-class OperationRepository implements OperationRepositoryInterface
+final class OperationRepository implements OperationRepositoryInterface
 {
     public function findOrFail(int $id): Operation
     {
@@ -58,8 +58,4 @@ class OperationRepository implements OperationRepositoryInterface
             ->paginate($perPage);
     }
 
-    public function getPendingOperations(int $userId): Collection
-    {
-        // TODO: Implement getPendingOperations() method.
-    }
 }

@@ -15,8 +15,6 @@ interface OperationRepositoryInterface
 
     public function update(int $id, array $data): int;
 
-    public function getPendingOperations(int $userId): Collection;
-
     public function getLatestOperations(int $userId, int $limit): Collection;
 
     public function getPaginatedOperations(
