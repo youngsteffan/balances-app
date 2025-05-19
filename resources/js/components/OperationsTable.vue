@@ -89,7 +89,7 @@ const handleSort = (field: string, canSort: boolean) => {
                     <td>{{ formatDate(operation.created_at) }}</td>
                 </tr>
                 <tr v-if="!operations || operations.length === 0">
-                    <td colspan="4" class="text-center text-muted py-4">
+                    <td colspan="5" class="text-center text-muted py-4">
                         Нет операций
                     </td>
                 </tr>

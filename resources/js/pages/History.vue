@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, reactive, ref, watch } from 'vue';
+import { computed, onMounted, reactive, ref, watch } from 'vue';
 import axios from 'axios';
 import { debounce } from 'lodash-es';
 import OperationsTable from '@/components/OperationsTable.vue';
@@ -9,6 +9,8 @@ let operations = reactive({});
 const loading = ref(true);
 const searchQuery = ref('');
 const sort = ref({ field: 'created_at', direction: 'desc' });
+
+const hasOperations = computed(() => (operations.data || []).length);
 
 watch(sort, () => {
     fetchOperations();
@@ -78,7 +80,8 @@ onMounted(fetchOperations);
                     ]"
                     />
 
-                    <div class="d-flex justify-content-between align-items-center mt-3">
+                    <div v-if="hasOperations"
+                         class="d-flex justify-content-between align-items-center mt-3">
                         <div class="text-muted">
                             Показано с {{ operations.from }} по {{ operations.to }} из {{ operations.total }} операций
                         </div>
